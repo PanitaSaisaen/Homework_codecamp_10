@@ -1,88 +1,294 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fakebook - เข้าสู่ระบบหรือสมัครใช้งาน</title>
 <style>
-body {
-  margin: 0;
-}
+    * {
+        font-family:Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .flex-container {
+        height: 720px;
+        background-color: rgb(240, 242, 245);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .logo-container {
+        flex-grow: 1;
+        flex-shrink: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-top: 200px;
+        padding-left: 40px;
+        padding-right: 65px;
+    }
+    .logo h1 {
+        font-size: 60px;  
+        color: rgb(0, 113, 243);
+        display: block;
+        text-align: left;
+    }
+    .logo p {
+        font-size: 28px;
+        display: block;
+        width: 480px;
+        text-align: left;
+    }
+    
+    .register-form {
+        flex-grow: 1;
+        flex-shrink: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 130px;
+        padding-left: 25px;
+        padding-right: 40px;
+    }
+    .register-form-card {
+        background-color: white;
+        width: 400px;
+        height: 360px;
+        padding: 10px 15px 24px 15px;
+        border-radius: 8px;
+        box-shadow: 1px 1px 8px rgb(196, 196, 196), 0px 0px 0px rgb(212, 212, 212);;
+    }
+    .email input, .pwd input {
+        width: 100%;
+        font-size: 19px;
+        padding: 14px;
+        margin: 6px 0 6px 0;
+        border: 1.5px solid rgb(218, 218, 218);
+        border-radius: 6px;
+    }
+    .sign-in button {
+        width: 100%;
+        font-size: 22px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(62, 117, 255);
+        padding: 10px;
+        margin: 10px 0 6px 0;
+        border: 1.5px solid rgb(255, 255, 255);
+        border-radius: 6px;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+    }
+    .sign-in button:hover {
+        background-color: rgb(63, 107, 219);
+    }
+    .forget {
+        display: block;
+        text-align: center;
+        margin: 8px 0 20px 0;
+    }
+    .forget a {
+        display: inline-block;
+        font-size: 16px;
+        color: rgb(49, 102, 235);
+    }
+    .horizontal-line hr{
+        border-top: 1px solid rgb(218, 218, 218);
+    }
+    .sign-up button {
+        display: block;
+        width: 40%;
+        font-size: 19px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(72, 187, 62);
+        padding: 12px;
+        margin: 24px auto auto auto;
+        border: 1.5px solid rgb(255, 255, 255);
+        border-radius: 6px;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+    }
+    .sign-up button:hover {
+        background-color: rgb(85, 167, 78);
+    }
+    .create-page p {
+        display: block;
+        width: 400px;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 25px;
+    }
+    .create-page p a {
+        color: black;
+    }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 25%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
+    .footer {
+        padding: 26px 40px;
+    }
+    .lang-option {
+        padding-bottom: 10px;
+        padding-right: 20px;
+    }
+    .lang-option li, .navigation li {
+        display: inline-block;
+    }
+    .lang-option a {
+        display: block;
+        color: rgb(112, 112, 112);
+        text-align: center;
+        font-size: 14px;
+        padding-right: 10px;
+    }
+    .lang-option button {
+        width: 30px;
+        height: 25px;
+        font-size: 18px;
+    }
+    .navigation {
+        padding-top: 10px;
+    }
+    .navigation a {
+        display: block;
+        color: rgb(112, 112, 112);
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.6;
+        padding-right: 20px;
+    }
+    .copyright {
+        color: rgb(112, 112, 112);
+        text-align: left;
+        font-size: 14px;
+        padding-top: 20px;
+    }
 
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-li a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-#home {
-margin-left:25%;
-padding:1px 16px;
-height:1000px;"
-}
-#news {
-margin-left:25%;
-padding:1px 16px;
-height:1000px;"
-}
-
+    @media (max-width: 1050px) {
+        .logo-container {
+            align-items: flex-start;
+            padding-right: 0px;
+        }
+        .register-form {
+            align-items: flex-end;
+        }
+        .logo p {
+            font-size: 26px;
+            width: 350px;
+        }
+    }
+    @media (max-width: 900px) {
+        .flex-container {
+            flex-direction: column;
+        }
+        .logo-container {
+            align-items: center;
+            justify-content: center;
+            padding: 0px;
+        }
+        .register-form {
+            align-items: center;
+            padding: 0px;
+        }
+        .logo h1, .logo p {
+            text-align: center;
+            padding: 0px;
+        }
+    }
 </style>
 </head>
 <body>
+    <div class="flex-container">
+        <div class="logo-container">
+            <div class="logo">
+                <h1>fakebook</h1>
+                <p>Fakebook ช่วยคุณเชื่อมต่อและแชร์กับผู้คนมากมายรอบตัวคุณ</p>
+            </div>
+        </div>
+    
+        <div class="register-form">
+            <div class="register-form-card">
+                <form>
+                    <div class="email">
+                        <input type="text" id="email" name="email" placeholder="อีเมลหรือหมายเลขโทรศัพท์มือถือ">
+                    </div>
+                    <div class="pwd">
+                        <input type="password" id="pwd" name="pwd" placeholder="รหัสผ่าน">
+                    </div>
+                    <div class="sign-in">
+                        <button>เข้าสู่ระบบ</button>
+                    </div>
+                    <div class="forget"><a href="#"><b>ลืมรหัสผ่านใช่หรือไม่</b></a></div>
+                    <div class="horizontal-line"><hr></div>
+                    <div class="sign-up">
+                        <button>สร้างบัญชีใหม่</button>
+                    </div>
+                </form>
+            </div>
+            <div class="create-page">
+                <p><a href="#"><strong>สร้างเพจ</strong></a> สำหรับบุคคลมีชื่อเสียง วงดนตรี หรือธุรกิจ</p>
+            </div>
+        </div>
+    </div>
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
-
-<div id="home">
-  <h2>Home</h2>
-  <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
-  <p>Notice that this div element has a left margin of 25%. This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
-  <p>Also notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-</div>
-
-<div id="news">
-  <h2>News</h2>
-  <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
-  <p>Notice that this div element has a left margin of 25%. This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
-  <p>Also notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-  <p>Some text..</p>
-</div>
+    <div class="footer">
+        <ul class="lang-option">
+            <li><a href="#"><b>ภาษาไทย</b></a></li>
+            <li><a href="#">English (UK)</a></li>
+            <li><a href="#">日本語</a></li>
+            <li><a href="#">中文(简体)</a></li>
+            <li><a href="#">Tiếng Việt</a></li>
+            <li><a href="#">Français (France)</a></li>
+            <li><a href="#">Deutsch</a></li>
+            <li><a href="#">Русский</a></li>
+            <li><a href="#">Español</a></li>
+            <li><a href="#">Português (Brasil)</a></li>
+            <li><a href="#">Italiano</a></li>
+            <li><button>&#43;</button></li>
+        </ul>
+        <div class="horizontal-line"><hr></div>
+        <ul class="navigation">
+            <li><a href="#">สมัคร</a></li>
+            <li><a href="#">เข้าสู่ระบบ</a></li>
+            <li><a href="#">Messenger</a></li>
+            <li><a href="#">Facebook Lite</a></li>
+            <li><a href="#">Watch </a></li>
+            <li><a href="#">ผู้คน</a></li>
+            <li><a href="#">เพจ</a></li>
+            <li><a href="#">หมวดหมู่เพจ</a></li>
+            <li><a href="#">สถานที่</a></li>
+            <li><a href="#">เกม</a></li>
+            <li><a href="#">ตำแหน่งที่ตั้ง</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Facebook Pay</a></li>
+            <li><a href="#">กลุ่ม</a></li>
+            <li><a href="#">งาน</a></li>
+            <li><a href="#">Oculus</a></li>
+            <li><a href="#">Portal</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">ในพื้นที่</a></li>
+            <li><a href="#">โครงการระดมทุน</a></li>
+            <li><a href="#">บริการ</a></li>
+            <li><a href="#">ศูนย์ข้อมูลการลงคะแนนเสียง</a></li>
+            <li><a href="#">เกี่ยวกับ</a></li>
+            <li><a href="#">สร้างโฆษณา</a></li>
+            <li><a href="#">สร้างเพจ</a></li>
+            <li><a href="#">ผู้พัฒนา</a></li>
+            <li><a href="#">ร่วมงานกับ Facebook</a></li>
+            <li><a href="#">ความเป็นส่วนตัว</a></li>
+            <li><a href="#">คุกกี้</a></li>
+            <li><a href="#">ตัวเลือกโฆษณา</a></li>
+            <li><a href="#">เงื่อนไข</a></li>
+            <li><a href="#">ความช่วยเหลือ</a></li>
+            <li><a href="#">การตั้งค่า</a></li>
+            <li><a href="#">บันทึกกิจกรรม</a></li>
+        </ul>
+        <div class="copyright">Fakebook &#169; 2021</div>
+    </div>
 </body>
 </html>
-
-
