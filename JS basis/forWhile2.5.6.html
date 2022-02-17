@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let player1 = prompt("(Player1) Enter number 1-100!");
+        let player2;
+
+        while (true) {
+            if (player1 === null) {
+                alert("Cancel");
+                break;
+            } else if (player1 > 0 && player1 <= 100) {
+                player2 = prompt("(Player2) Guss number 1-100!");
+            } else {
+                player1 = prompt("(Player1) Please enter number 1-100!")
+            } 
+            if (player2 === null) {
+                alert("Cancel");
+                break;
+            } else if (player2 === player1) {
+                alert("Correct!!!");
+                break;
+            } else if (player2 < player1) {
+                alert("More than!");
+            } else if (player2 > player1) {
+                alert("Less than!");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

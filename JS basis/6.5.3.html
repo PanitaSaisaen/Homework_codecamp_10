@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let grade = Number(prompt("Enter your score?"));
+    let message;
+    if (grade > 100) {
+        message = "Please enter your score 1-100!";
+    } else if (grade >= 80) {
+        message = "A";
+    } else if (grade >=70) {
+        message = "B";
+    } else if (grade >= 60) {
+        message = "C";
+    } else if (grade >= 50) {
+        message = "D";
+    } else if (grade >= 0) {
+        message = "F";
+    } else {
+        message = "Please enter your score 1-100!";
+    }
+    alert(message);
+</script>
+</body>
+</html>

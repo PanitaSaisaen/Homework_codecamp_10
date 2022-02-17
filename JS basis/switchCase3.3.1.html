@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if (browser === "Egde") {
+            alert("You've got the Edge!");
+        } else if (browser === "Chrom" || browser === "FireFox" || browser === "Safari" || browser === "Opera") {
+            alert("Okey we support these browser too");
+        } else {
+            alert("We hope that his page looks ok");
+        }
+
+
+
+        switch (browser) {
+            case "Edge" :
+                alert("You've got the Edge!");
+                break;
+
+            case "Chrom" :
+            case "FireFox" :
+            case "Safari" :
+            case "Opera" :
+                alert("Okey we support these browser too");
+                break;
+
+            default :
+            alert("We hope that his page looks ok");
+        }
+    </script>
+</body>
+</html>

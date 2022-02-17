@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let year = new Date("2019-11-01")
+        let arr1 =[
+            {name: "apple", birth: "2000-01-01"},
+            {nanme: "banana", birth: "1990-10-01"},
+            {name: "watermelon", birth: "1985-12-01"}
+            ];
+        let arr2 = arr1.map( x => {
+            let getAge = Math.floor((year - new Date(x.birth)) / 3.15576e+10)
+            x.age = getAge
+            return x
+        });
+
+        console.log(arr2)
+    </script>
+</body>
+</html>        
